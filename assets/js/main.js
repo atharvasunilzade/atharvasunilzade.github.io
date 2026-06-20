@@ -110,7 +110,7 @@
       var n = document.getElementById('cap-name').value.trim();
       var p = document.getElementById('cap-phone').value.trim();
       var msg = 'Hi BlackForgeX, I\'m ' + n + '. Please call me back on ' + p + '. I\'d like to discuss a software project.';
-      window.open('https://wa.me/918308966290?text=' + encodeURIComponent(msg), '_blank');
+      window.open('https://wa.me/918308966290?text=' + encodeURIComponent(msg), '_blank', 'noopener,noreferrer');
       closeCap();
     });
   }
