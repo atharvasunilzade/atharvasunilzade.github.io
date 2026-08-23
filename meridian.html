@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; form-action 'self' mailto:; upgrade-insecure-requests" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Air-Gapped Clinical AI for Hospitals — Meridian</title>
+  <meta name="description" content="Clinical documentation, record Q&amp;A and medical coding AI that runs on the hospital's own hardware. Patient data never leaves the building." />
+  <meta name="keywords" content="clinical AI hospital, air gapped AI healthcare, on premise hospital AI, clinical documentation software India, medical scribe software, AI medical scribe, ICD-10 coding software, medical coding automation, patient record Q&amp;A, EMR AI assistant, DPDP compliant healthcare software, HIPAA compliant clinical software, hospital data privacy software, radiology workflow software, hospital information system AI, healthcare AI India, PHI de-identification, audit ledger healthcare, Meridian clinical platform" />
+  <meta name="author" content="BlackForgeX Pvt. Ltd." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://blackforge.group/meridian.html" />
+  <meta name="theme-color" content="#0a0b0d" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="product" />
+  <meta property="og:site_name" content="BlackForgeX Pvt. Ltd." />
+  <meta property="og:title" content="Meridian — Air-Gapped Clinical AI for Hospitals" />
+  <meta property="og:description" content="Clinical documentation, record Q&amp;A and coding AI that runs on the hospital's own hardware. Patient data never leaves the building." />
+  <meta property="og:url" content="https://blackforge.group/meridian.html" />
+  <meta property="og:image" content="https://blackforge.group/assets/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://blackforge.group/assets/og.png" />
+  <meta name="twitter:title" content="Meridian — Air-Gapped Clinical AI" />
+  <meta name="twitter:description" content="Hospital AI that runs on your hardware. Hash-chained audit, policy engine, clinical safety gate." />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Meridian",
+    "alternateName": ["Meridian Clinical AI", "BlackForgeX Meridian"],
+    "applicationCategory": "HealthApplication",
+    "applicationSubCategory": "Clinical documentation, record retrieval and medical coding",
+    "operatingSystem": "Deploys on hospital-owned servers; used in any web browser",
+    "url": "https://blackforge.group/meridian.html",
+    "image": "https://blackforge.group/assets/og.png",
+    "inLanguage": "en",
+    "description": "An air-gappable clinical AI platform for multispecialty hospitals. It drafts clinical documentation, answers questions grounded in a single patient's record, proposes ICD-10 and CPT codes with supporting evidence, and scaffolds radiology reports — running entirely on the hospital's own hardware so protected health information never leaves the building. Every AI call passes through a single guarded pipeline that checks policy and consent, de-identifies, validates and records. Clinical output is quarantined until a clinician signs it. Meridian assists documentation and workflow; it does not diagnose, and it does not read images.",
+    "featureList": [
+      "Runs air-gapped on hospital hardware — no patient data leaves the premises",
+      "Single guarded AI pipeline: policy check, consent check, de-identify, infer, re-identify, validate, record",
+      "Policy engine holding DPDP Act 2023, HIPAA and GDPR/EU AI Act as data, applying the strictest effect",
+      "Hash-chained tamper-evident audit ledger with published anchor hash",
+      "Clinical evaluation gate requiring 100% negation recall and 100% PHI recall",
+      "Role-based access with a Data Protection Officer role that has no PHI access",
+      "Multi-factor authentication with token scoping so a password alone never reaches patient data",
+      "Draft output quarantined until explicitly attested and signed; signed artefacts immutable",
+      "Vendor-neutral connectors — adding a hospital information system is one file",
+      "Deploys air-gapped on-premise or as multi-tenant SaaS from one codebase"
+    ],
+    "author": { "@type": "Organization", "name": "BlackForgeX Pvt. Ltd.", "url": "https://blackforge.group" },
+    "publisher": { "@type": "Organization", "name": "BlackForgeX Pvt. Ltd.", "url": "https://blackforge.group" },
+    "areaServed": { "@type": "Place", "name": "Worldwide" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://blackforge.group/" },
+      { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://blackforge.group/products.html" },
+      { "@type": "ListItem", "position": 3, "name": "Meridian", "item": "https://blackforge.group/meridian.html" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does patient data leave the hospital?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. In air-gapped mode Meridian refuses to start against any inference endpoint that is not on the hospital's own network. A base URL pointing at a public API is a startup error, not a silent request — because a misconfigured endpoint is the most likely way protected health information would ever escape a hospital." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Meridian diagnose patients or read scans?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Meridian assists documentation, retrieval, coding and workflow. The radiology module triages the worklist, retrieves prior studies and scaffolds a report — it deliberately does not read images or produce any finding. Nothing reaches the patient chart until a qualified clinician reviews it and signs an explicit attestation of authorship." }
+      },
+      {
+        "@type": "Question",
+        "name": "How does it satisfy DPDP, HIPAA and GDPR at once?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Regulation is held as data rather than as code branches. The policy engine stores DPDP Act 2023, HIPAA and GDPR/EU AI Act as a table mapping jurisdiction and action to a rule. A hospital bound by several regimes automatically gets the strictest effect and the union of all conditions, and adding another country is a configuration entry rather than a rewrite." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do we prove to an auditor that PHI was minimised?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Because there is exactly one place it could have failed. Every AI feature in the product calls one guarded function that runs policy check, consent check, de-identification, inference, re-identification, validation and recording in that order. Nothing calls a model provider directly, so the compliance argument is a single auditable code path rather than a claim about the whole system." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can the audit log be tampered with?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Not without it showing. Each audit event hashes its predecessor, so editing or deleting any row breaks the chain from that point and the verification endpoint reports the exact sequence number where it broke. Exporting the head hash to somewhere your database administrator does not control makes it tamper-proof rather than merely tamper-evident." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you know the AI output is clinically safe?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A separate clinical evaluation gate measures meaning rather than structure. It requires 100% negation recall, because missing a denial inverts clinical meaning, and 100% PHI recall, because a miss is a reportable breach, alongside thresholds for assertion accuracy and grounding. The gate exists because structural tests once passed a note reporting chest pain for a patient who had just said they had none." }
+      },
+      {
+        "@type": "Question",
+        "name": "Will it work with our existing hospital system?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The core imports no vendor. Integration happens through connectors that yield a standard patient and document shape, so adding a new hospital information system is a single file rather than a change to the platform." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can we run it hosted instead of on-premise?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The same codebase deploys air-gapped on your own hardware or as multi-tenant hosted software with tenant isolation. Hospitals that start on-premise are not locked out of a hosted model later." }
+      }
+    ]
+  }
+  </script>
+  <link rel="preload" href="assets/fonts/SpaceGrotesk-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/Inter-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript>
+</head>
+<body>
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <svg class="logo-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <rect x="2" y="2" width="60" height="60" rx="14" fill="#14171c" stroke="#242a31"/>
+          <path d="M20 40h24l-4 8H24l-4-8z" fill="url(#g)"/><path d="M16 30h32v8H16z" fill="url(#g)"/>
+          <path d="M30 16h10v14H30z" fill="url(#g)"/><circle cx="35" cy="22" r="3" fill="#0a0b0d"/>
+          <defs><linearGradient id="g" x1="16" y1="16" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#ff5a1f"/><stop offset="1" stop-color="#ffb020"/></linearGradient></defs>
+        </svg> Black<b>ForgeX</b>
+      </a>
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="products.html" class="active">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="nav-cta"><a class="btn btn-primary" href="contact.html">Start a project</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="reveal">
+        <span class="eyebrow">⚒ Meridian</span>
+        <h1>Clinical AI that <span class="text-gradient">never leaves the hospital</span></h1>
+        <p class="lead">Documentation, record Q&amp;A, medical coding and radiology workflow for a multispecialty hospital — running entirely on your own hardware. Patient data stays inside the building, every AI call is auditable, and nothing reaches a chart until a clinician signs it.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="contact.html">Arrange a walkthrough →</a>
+          <a class="btn btn-ghost" href="tel:+918308966290">Call +91 83089 66290</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b class="text-gradient">Air-gapped</b><span>Fails closed by design</span></div>
+          <div class="stat"><b class="text-gradient">100%</b><span>Negation &amp; PHI recall gate</span></div>
+          <div class="stat"><b class="text-gradient">113</b><span>End-to-end assertions</span></div>
+        </div>
+      </div>
+      <div class="hero-visual reveal">
+        <div class="forge-card">
+          <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <path d="M18 42h28l-5 9H23l-5-9z" fill="url(#hg)"/>
+            <path d="M12 30h40v9H12z" fill="url(#hg)"/>
+            <path d="M28 12h12v18H28z" fill="url(#hg)"/>
+            <circle cx="34" cy="20" r="3.5" fill="#0a0b0d"/>
+            <defs><linearGradient id="hg" x1="12" y1="12" x2="52" y2="51" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#ff5a1f"/><stop offset="1" stop-color="#ffb020"/></linearGradient></defs>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE PROBLEM ============ -->
+  <section class="section" style="background:var(--bg-2); border-block:1px solid var(--border);">
+    <div class="container hero-grid" style="align-items:center;">
+      <div class="reveal">
+        <span class="eyebrow">Why hospitals stall on AI</span>
+        <h2 class="section-title">The blocker is never the model</h2>
+        <p class="section-lead">Every hospital knows what clinical AI could do for documentation load and coding backlogs. What stops the project is the question nobody can answer cleanly: <b>where does the patient data go, and can you prove it?</b> Sending records to a public API is the end of the conversation with any serious data protection officer.</p>
+        <p class="section-lead" style="margin-top:18px;">Meridian answers it structurally rather than with promises. The system runs on your hardware, and in air-gapped mode it <b>refuses to start</b> if it is pointed at anything outside your own network — a misconfiguration becomes a startup error instead of a silent leak.</p>
+      </div>
+      <div class="reveal">
+        <div class="steps">
+          <div class="step"><div class="num"></div><div><h3>One door to the model</h3><p>Every AI feature calls a single guarded function. Nothing reaches a provider directly, so there is exactly one place PHI handling could fail — and one place to audit.</p></div></div>
+          <div class="step"><div class="num"></div><div><h3>Regulation as data</h3><p>DPDP 2023, HIPAA and GDPR/EU AI Act live in a policy table. Bound by several at once? You get the strictest effect and the union of conditions, automatically.</p></div></div>
+          <div class="step"><div class="num"></div><div><h3>An audit trail that can't be edited</h3><p>Each event hashes its predecessor. Alter one row and the chain breaks from there, with the exact sequence number reported.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MODULES ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="reveal" style="text-align:center; display:flex; flex-direction:column; align-items:center;">
+        <span class="eyebrow">Four modules</span>
+        <h2 class="section-title">What it does — and what it refuses to do</h2>
+        <p class="section-lead" style="margin-inline:auto;">Each module has a hard boundary written into the product, not into a disclaimer.</p>
+      </div>
+      <div class="grid grid-2" style="margin-top:48px;">
+
+        <div class="card reveal">
+          <span class="eyebrow">Scribe</span>
+          <h3 style="margin-top:12px;">Consultation → structured draft</h3>
+          <p style="color:var(--muted);">Turns a transcript into a structured SOAP draft with extracted vitals, medications and symptoms, and flags where the source was ambiguous rather than guessing.</p>
+          <p style="color:var(--faint); margin-top:14px;"><b>Will not:</b> write to the chart without a signature.</p>
+        </div>
+
+        <div class="card reveal">
+          <span class="eyebrow">Record Q&amp;A</span>
+          <h3 style="margin-top:12px;">Answers grounded in one patient's record</h3>
+          <p style="color:var(--muted);">Ask a question about a patient and get an answer where every claim is citation-linked back to the source document it came from.</p>
+          <p style="color:var(--faint); margin-top:14px;"><b>Will not:</b> answer from general medical knowledge when the record is silent.</p>
+        </div>
+
+        <div class="card reveal">
+          <span class="eyebrow">Coding</span>
+          <h3 style="margin-top:12px;">ICD-10 and CPT proposals with evidence</h3>
+          <p style="color:var(--muted);">Suggests codes with the verbatim supporting text beside each one, and points out specificity gaps that would otherwise come back as a query.</p>
+          <p style="color:var(--faint); margin-top:14px;"><b>Will not:</b> submit a claim without certified-coder sign-off.</p>
+        </div>
+
+        <div class="card reveal">
+          <span class="eyebrow">Radiology</span>
+          <h3 style="margin-top:12px;">Worklist triage and report scaffolding</h3>
+          <p style="color:var(--muted);">Triages the worklist from ordering context, retrieves prior studies for comparison, and scaffolds the report structure for the radiologist to complete.</p>
+          <p style="color:var(--faint); margin-top:14px;"><b>Will not:</b> read images or produce any finding.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SAFETY GATE ============ -->
+  <section class="section" style="background:var(--bg-2); border-block:1px solid var(--border);">
+    <div class="container hero-grid" style="align-items:center;">
+      <div class="reveal">
+        <span class="eyebrow">The clinical safety gate</span>
+        <h2 class="section-title">"No pain" must never become "chest pain"</h2>
+        <p class="section-lead">Meridian's test suite covers access control, tenant isolation, consent, de-identification, the audit chain and authentication — 113 end-to-end assertions in all. But passing structural tests is not the same as being clinically safe.</p>
+        <p class="section-lead" style="margin-top:18px;">A separate evaluation harness measures <b>clinical meaning</b>. It exists because the structural tests once happily passed a note recording <i>"Reported chest pain"</i> for a patient who had just said <i>"No pain."</i> Everything was structurally correct. The meaning was inverted.</p>
+        <p class="section-lead" style="margin-top:18px;">So a concept is never extracted without its assertion status — certainty, who experienced it, when, and whether it was even a question — and the gate blocks any release that regresses on negation.</p>
+      </div>
+      <div class="card reveal">
+        <span class="eyebrow">Release thresholds</span>
+        <h3 style="margin-top:14px;">A build ships only if it clears these</h3>
+        <ul class="checks" style="margin-top:20px;">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="m20 6-11 11-5-5"/></svg><span><b>Negation recall — 1.00.</b> Missing a denial inverts clinical meaning. There is no acceptable miss rate.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="m20 6-11 11-5-5"/></svg><span><b>PHI recall — 1.00.</b> A single miss is a reportable breach.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="m20 6-11 11-5-5"/></svg><span><b>Assertion micro-F1 — ≥ 0.90.</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="m20 6-11 11-5-5"/></svg><span><b>Grounding pass rate — ≥ 0.80.</b> Answers must trace to the record.</span></li>
+        </ul>
+        <p style="color:var(--faint); font-size:.88rem; margin-top:18px;">Multi-factor authentication is verified against all six published RFC 6238 test vectors, so any standard authenticator app interoperates.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GOVERNANCE ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="reveal" style="text-align:center; display:flex; flex-direction:column; align-items:center;">
+        <span class="eyebrow">Governance</span>
+        <h2 class="section-title">Built for the person who has to sign off</h2>
+        <p class="section-lead" style="margin-inline:auto;">Your data protection officer, your compliance lead and your auditor are the real buyers. Meridian is built for their questions.</p>
+      </div>
+      <div class="grid grid-3" style="margin-top:48px;">
+
+        <div class="card reveal">
+          <h3>A DPO role with no PHI access</h3>
+          <p style="color:var(--muted);">The data protection officer sees audit, policy and metrics — and no patient data at all. Oversight without exposure, enforced by the role rather than by discipline.</p>
+        </div>
+
+        <div class="card reveal">
+          <h3>A password alone never reaches PHI</h3>
+          <p style="color:var(--muted);">Token scope makes the half-authenticated state explicit. Pre-MFA tokens are rejected by every clinical endpoint, so no code path returns patient data on a password alone.</p>
+        </div>
+
+        <div class="card reveal">
+          <h3>Nothing reaches the chart unattested</h3>
+          <p style="color:var(--muted);">Drafts, code suggestions and report scaffolds are quarantined visually, structurally and procedurally. Signing requires an explicit attestation of authorship, and signed artefacts are immutable.</p>
+        </div>
+
+        <div class="card reveal">
+          <h3>Tamper-evident, then tamper-proof</h3>
+          <p style="color:var(--muted);">The hash-chained ledger detects any edit. Publishing the head hash somewhere your DBA doesn't control turns detection into prevention.</p>
+        </div>
+
+        <div class="card reveal">
+          <h3>Vendor-neutral integration</h3>
+          <p style="color:var(--muted);">The core imports no vendor. Connectors yield a standard patient and document shape, so adding your hospital information system is one file — not a platform migration.</p>
+        </div>
+
+        <div class="card reveal">
+          <h3>On-premise or hosted, one codebase</h3>
+          <p style="color:var(--muted);">Run it air-gapped on your own servers now, with the option of multi-tenant hosted deployment later. Starting private doesn't close the door.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DIAGRAM ============ -->
+  <section class="section-sm">
+    <div class="container reveal">
+      <figure style="margin:0;">
+        <img src="assets/img/meridian-flow.png" alt="Diagram: Meridian guarded AI pipeline — policy check, consent check, de-identification, validation of assertion status, then recording to a hash-chained audit ledger." width="1250" height="525" loading="lazy" decoding="async" style="width:100%;height:auto;border-radius:14px;border:1px solid var(--border);" />
+        <figcaption style="color:var(--faint); font-size:.92rem; text-align:center; margin-top:14px;">Every AI feature in Meridian passes through this one path. That is the compliance argument.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->  <section class="section" style="background:var(--bg-2); border-block:1px solid var(--border);">
+    <div class="container">
+      <div class="reveal" style="text-align:center; display:flex; flex-direction:column; align-items:center;">
+        <span class="eyebrow">Questions we get asked</span>
+        <h2 class="section-title">What your committee will want to know</h2>
+      </div>
+      <div class="grid grid-2" style="margin-top:44px;">
+
+        <div class="card reveal">
+          <h3>Does patient data leave the hospital?</h3>
+          <p style="color:var(--muted);">No. In air-gapped mode the system refuses to construct an inference client against any endpoint outside your own network. A base URL pointing somewhere public is a startup failure, not a quiet request.</p>
+        </div>
+
+        <div class="card reveal">
+          <h3>Does it diagnose?</h3>
+          <p style="color:var(--muted);">No. Meridian assists documentation, retrieval, coding and workflow. It does not read images and does not produce findings, and a qualified clinician signs everything before it reaches a chart. It is a documentation and workflow tool, not a diagnostic device.</p>
+        </div>
+
+        <div class="card reveal">
+          <h3>How is it evaluated?</h3>
+          <p style="color:var(--muted);">Beyond the 113 end-to-end assertions, a clinical gate measures meaning — 100% negation recall, 100% PHI recall, assertion micro-F1 above 0.90 and grounding above 0.80. A build that regresses does not ship.</p>
+        </div>
+
+        <div class="card reveal">
+          <h3>Do we need GPUs and model weights to evaluate it?</h3>
+          <p style="color:var(--muted);">No. It boots into a deterministic provider so every screen and workflow can be walked through before you commit any hardware. You can see the whole system before spending on infrastructure.</p>
+        </div>
+
+        <div class="card reveal">
+          <h3>What about multiple jurisdictions?</h3>
+          <p style="color:var(--muted);">The policy engine holds DPDP 2023, HIPAA and GDPR/EU AI Act as data. A tenant bound by several gets the strictest effect and the union of conditions, and another regime is a configuration entry.</p>
+        </div>
+
+        <div class="card reveal">
+          <h3>Can we get it tailored?</h3>
+          <p style="color:var(--muted);">Yes — your specialties, your templates, your coding workflow, your existing systems. We are a custom software company; adapting it to how your hospital runs is the normal engagement, not an exception.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-band reveal">
+        <h2>Walk your DPO through it</h2>
+        <p>The fastest way to evaluate Meridian is to let the person who would have to approve it try to break it. Book a walkthrough and bring your hardest compliance question.</p>
+        <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+          <a class="btn btn-primary" href="contact.html">Arrange a walkthrough →</a>
+          <a class="btn btn-ghost" href="mailto:info@blackforge.group">info@blackforge.group</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html" style="margin-bottom:14px;">
+            <svg class="logo-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+              <rect x="2" y="2" width="60" height="60" rx="14" fill="#14171c" stroke="#242a31"/>
+              <path d="M20 40h24l-4 8H24l-4-8z" fill="url(#fg)"/><path d="M16 30h32v8H16z" fill="url(#fg)"/>
+              <path d="M30 16h10v14H30z" fill="url(#fg)"/><circle cx="35" cy="22" r="3" fill="#0a0b0d"/>
+              <defs><linearGradient id="fg" x1="16" y1="16" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#ff5a1f"/><stop offset="1" stop-color="#ffb020"/></linearGradient></defs>
+            </svg> Black<b>ForgeX</b>
+          </a>
+          <p>BlackForgeX Pvt. Ltd. — software products &amp; custom development from Akola, India.</p>
+          <p style="color:var(--faint); font-size:.82rem; margin-top:12px;">Meridian assists clinical documentation and workflow. It does not diagnose and does not replace clinical judgement.</p>
+        </div>
+        <div class="footer-col"><h4>Company</h4><a href="about.html">About us</a><a href="services.html">Services</a><a href="products.html">Products</a><a href="hub.html">BlackForgeX Hub</a><a href="factory.html">CCTV Attendance</a><a href="dealdesk.html">DealDesk</a><a href="meridian.html">Meridian</a><a href="quant.html">Strategy Development</a><a href="contact.html">Contact</a></div>
+        <div class="footer-col"><h4>Get in touch</h4><a href="mailto:info@blackforge.group">info@blackforge.group</a><a href="tel:+918308966290">+91 83089 66290</a><a>Akola, Maharashtra, India</a></div>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year"></span> BlackForgeX Pvt. Ltd. All rights reserved.</span><span>Forged with precision ⚒</span></div>
+    </div>
+  </footer>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

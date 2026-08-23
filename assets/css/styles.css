@@ -1,3 +1,11 @@
+/* ---------- Self-hosted fonts (no external requests, no render block) ---------- */
+@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url('../fonts/Inter-400.woff2') format('woff2');}
+@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url('../fonts/Inter-500.woff2') format('woff2');}
+@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url('../fonts/Inter-600.woff2') format('woff2');}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:400;font-display:swap;src:url('../fonts/SpaceGrotesk-400.woff2') format('woff2');}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:500;font-display:swap;src:url('../fonts/SpaceGrotesk-500.woff2') format('woff2');}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:600;font-display:swap;src:url('../fonts/SpaceGrotesk-600.woff2') format('woff2');}
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:700;font-display:swap;src:url('../fonts/SpaceGrotesk-700.woff2') format('woff2');}
 /* ===========================================================
    BlackForgeX — design system
    Theme: industrial forge — black steel + ember glow
@@ -152,6 +160,7 @@ h1,h2,h3,h4 { font-family: var(--font-head); font-weight: 600; line-height: 1.15
 .step .num { counter-increment: step; font-family: var(--font-head); font-size: 1.5rem; font-weight: 700;
   width: 56px; height: 56px; border-radius: 12px; display: grid; place-items: center;
   background: var(--grad-ember); color: #1a0d00; }
+.step .num::before { content: counter(step); }
 .step h3 { font-size: 1.2rem; margin-bottom: 6px; }
 .step p { color: var(--muted); }
 
@@ -298,3 +307,4 @@ h1,h2,h3,h4 { font-family: var(--font-head); font-weight: 600; line-height: 1.15
 .cap-form input:focus { outline: none; border-color: var(--ember); }
 .cap-form button { justify-content: center; }
 .cap-trust { margin-top: 12px; text-align: center; color: var(--faint); font-size: .8rem; }
+
